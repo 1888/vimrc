@@ -95,3 +95,6 @@ set tabstop=4
 "set expandtab
 autocmd FileType c,cpp,java set shiftwidth=4 | set expandtab
 hi Search ctermfg=234 ctermbg=190
+
+" close buffer without close window
+map <F7> <ESC>:bp<CR><ESC>:bw #<CR>
