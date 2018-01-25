@@ -27,6 +27,8 @@ Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<S-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_by_filename = 1
+let g:ctrlp_max_files = 100000
+let g:ctrlp_max_depth = 40
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|o|cmd)$',
@@ -43,7 +45,7 @@ let g:ctrlp_custom_ignore = {
 Plugin 'majutsushi/tagbar'
 "nmap <Leader>tb :TagbarToggle<CR> "快捷键设置 
 "let g:tagbar_ctags_bin='ctags' "ctags程序的路径 
-let g:tagbar_width=30 "窗口宽度的设置 
+let g:tagbar_width=25 "窗口宽度的设置 
 let g:tagbar_left=1
 map <F2> :Tagbar<CR> 
 "autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen() "如果是c语言的程序的话，tagbar自动开启
@@ -57,7 +59,7 @@ map <silent> <F8> <ESC>:!ctags -R <CR><CR>
 
 Plugin 'scrooloose/nerdtree'
 let NERDTreeWinPos='right'
-let NERDTreeWinSize=50
+let NERDTreeWinSize=25
 let NERDTreeShowHidden=1
 let NERDTreeAutoCenter=1
 " ignore filetype
