@@ -70,6 +70,12 @@ Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 set t_Co=256
+if ! has("gui_running")
+		set t_Co=256
+endif
+if &diff
+		colors blue
+endif
 set laststatus=2
 nmap <F4> <ESC>:AirlineToggle<CR>
 nmap <F5> <ESC>:bp<CR>
