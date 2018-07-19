@@ -49,7 +49,7 @@ let NERDTreeWinSize=25
 let NERDTreeShowHidden=1
 let NERDTreeAutoCenter=1
 " ignore filetype
-let NERDTreeIgnore=[ '\.o','\~$','\.swp','\.tmp','\.cmd','\.dtb' ]
+let NERDTreeIgnore=[ 'tags','\.o','\~$','\.swp','\.tmp','\.cmd','\.dtb' ]
 nmap <F3> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -148,3 +148,19 @@ set grepprg=/bin/grep\ -nsr\ --binary-files=without-match\
 vmap <silent> ;/ y/<C-R>=escape(@",'\V.*$^~[]')<CR><CR>
 " 可视模式下当前目录搜索选中文字，结果使用:lopen打开
 vnoremap <silent> ;f y:lgrep! "<C-R>=escape(@",'\V.*$^~[]')<CR>" * <CR><CR><ESC>:lopen<CR>
+"设置括号自动补全
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+autocmd FileType c,cpp,java inoremap { {<CR>}<ESC>ko
+"设置跳出自动补全的括号等
+func SkipPair()
+		if getline('.')[col('.')-1] == ')' || getline('.')[col('.')-1] == ']' || getline('.')[col('.')-1] == '"' || getline('.')[col('.')-1] == "'"  
+				return "\<ESC>la"
+		else
+				return "\t"
+		endif
+endfunc
+"将tab键绑定为跳出括号
+autocmd FileType c,cpp,java inoremap <TAB> <c-r>=SkipPair()<CR>
