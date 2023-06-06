@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/ 
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins 
 "let path = '~/some/path/here' 
@@ -22,7 +22,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'L9' 
 "Plugin 'FuzzyFinder' 
 " scripts not on GitHub 
-Plugin 'git://git.wincent.com/command-t.git' 
+" Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin) 
 " Plugin 'file:///home/gmarik/path/to/plugin' 
 " ... 
